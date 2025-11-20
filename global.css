@@ -1,6 +1,6 @@
 /* --- NEO-BRUTALISM DESIGN TOKENS (GLOBAL) --- */
 :root {
-  --neo-blue: #0033cc; /* Electric Blue - Background Utama */
+  --neo-blue: #416df1; /* Electric Blue - Background Utama */
   --neo-green: #ccff00; /* Acid Green - Aksen/Highlight */
   --neo-black: #111111; /* Hitam Pekat - Border & Text */
   --neo-white: #ffffff; /* Putih - Kartu */
@@ -34,6 +34,20 @@ body {
 
   overflow-x: hidden;
   padding-top: 80px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  body {
+    padding-top: 70px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  body {
+    padding-top: 60px;
+    background-size: 20px 20px;
+  }
 }
 
 /* Typography Overrides */
@@ -521,5 +535,149 @@ h5,
 @keyframes blink {
   50% {
     opacity: 0;
+  }
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 991.98px) {
+  .home-section {
+    min-height: 80vh;
+    padding-top: 1rem;
+  }
+
+  .vinyl-neo {
+    width: 250px;
+    height: 250px;
+  }
+
+  .vinyl-inner {
+    width: 160px;
+    height: 160px;
+  }
+
+  .vinyl-center {
+    width: 80px;
+    height: 80px;
+  }
+
+  .card-neo-simple {
+    padding: 1rem;
+  }
+
+  .btn-neo-primary,
+  .btn-neo-secondary {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .home-section {
+    text-align: center;
+  }
+
+  .vinyl-neo {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .vinyl-inner {
+    width: 120px;
+    height: 120px;
+  }
+
+  .vinyl-center {
+    width: 60px;
+    height: 60px;
+  }
+
+  .badge-neo {
+    padding: 4px 12px;
+    font-size: 0.8rem;
+  }
+
+  .btn-neo-primary,
+  .btn-neo-secondary {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .card-neo {
+    margin-bottom: 1rem;
+  }
+
+  .section-neo {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .vinyl-neo {
+    width: 180px;
+    height: 180px;
+  }
+
+  .card-neo-simple {
+    padding: 0.75rem;
+    margin: 0 10px;
+  }
+
+  .footer-neo {
+    padding: 2rem 0 1rem;
+  }
+
+  .social-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .display-1 {
+    font-size: 2.5rem;
+  }
+
+  .display-2 {
+    font-size: 2rem;
+  }
+
+  .display-3 {
+    font-size: 1.75rem;
+  }
+
+  .display-4 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 374.98px) {
+  .vinyl-neo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .card-neo-simple {
+    margin: 0 5px;
+  }
+
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .display-1 {
+    font-size: 2rem;
+  }
+
+  .display-2 {
+    font-size: 1.75rem;
+  }
+
+  .display-3 {
+    font-size: 1.5rem;
+  }
+
+  .display-4 {
+    font-size: 1.25rem;
   }
 }
