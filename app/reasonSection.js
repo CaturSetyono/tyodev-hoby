@@ -4,13 +4,13 @@ function reasonSection() {
   section.innerHTML = `
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-3 text-white mb-3">WHY <span class="highlight">MUSIC?</span></h2>
+                <h2 class="display-3 text-white mb-3">WHY <span class="highlight text-">MUSIC?</span></h2>
                 <div class="bg-white d-inline-block px-3 py-1 border border-dark border-3">
                     <p class="lead fw-bold mb-0">Logika Akuntansi x Emosi Musik</p>
                 </div>
             </div>
             
-            <div class="row g-4 mb-5">
+            <div class="row g-4 mb-2">
                 <div class="col-lg-4">
                     <div class="reason-card">
                         <div class="card-icon">
@@ -38,39 +38,6 @@ function reasonSection() {
                         </div>
                         <h4>SOCIAL VIBE</h4>
                         <p>Musik jadi bahasa universal. Sharing playlist bareng temen sekelas selalu jadi topik seru pas lagi break kuliah.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row mt-5">
-                <div class="col-lg-8 mx-auto">
-                    <div class="journey-box">
-                        <h3 class="text-center mb-4 border-bottom border-3 border-dark pb-3">MY TIMELINE 🚀</h3>
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="year-badge">2005</div>
-                                <div class="timeline-content">
-                                    <h5>CHILDHOOD ERA</h5>
-                                    <p>Era Peterpan, Ungu, dan ST12! Awal mula kenal nada.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="year-badge">2013</div>
-                                <div class="timeline-content">
-                                    <h5>TEENAGE ROCK</h5>
-                                    <p>Green Day, Radiohead, Arctic Monkeys. Fase rebel dimulai.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="year-badge">NOW</div>
-                                <div class="timeline-content">
-                                    <h5>COLLEGE MIX</h5>
-                                    <p>Lo-fi buat belajar, K-pop buat semangat, Jazz buat santai.</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
