@@ -1,34 +1,75 @@
 function playlistSection() {
   const section = document.createElement("section");
   section.classList.add("playlist-section", "py-5");
-  
+
   const playlists = [
-      { title: "CODING VIBES", desc: "Instrumental only. No lyrics.", icon: "fa-code", color: "#ffffff" },
-      { title: "ENERGY BOOST", desc: "Rock & Pop Punk pagi hari.", icon: "fa-bolt", color: "#ccff00" }, // Acid Green
-      { title: "NIGHT STUDY", desc: "Chill & Ambient.", icon: "fa-moon", color: "#ffffff" },
-      { title: "FEEL GOOD", desc: "R&B & Soul.", icon: "fa-heart", color: "#ffffff" },
-      { title: "GAMING MODE", desc: "Electronic & Synthwave.", icon: "fa-gamepad", color: "#ffffff" },
-      { title: "COFFEE BREAK", desc: "Jazz & Acoustic.", icon: "fa-coffee", color: "#ffffff" }
+    {
+      title: "INDIE LOKAL",
+      desc: "Hindia, Lomba Sihir, Perunggu.",
+      icon: "fa-guitar",
+      color: "#FF6B6B",
+      count: "50 Songs",
+      link: "https://open.spotify.com/playlist/37i9dQZF1DXd8kLqM5h2jZ",
+    },
+    {
+      title: "GALAU BRUTAL",
+      desc: "Pamungkas, Idgitaf, Sal Priadi.",
+      icon: "fa-heart-broken",
+      color: "#4ECDC4",
+      count: "32 Songs",
+      link: "https://open.spotify.com/playlist/37i9dQZF1DX50QitC6McUh",
+    },
+    {
+      title: "HEALING VIBES",
+      desc: "Obat capek hati & pikiran.",
+      icon: "fa-cloud-sun",
+      color: "#FFE66D",
+      count: "24 Songs",
+      link: "https://open.spotify.com/playlist/37i9dQZF1DX3rxVfibe1L0",
+    },
+    {
+      title: "LATE NIGHT",
+      desc: "City lights & deep thoughts.",
+      icon: "fa-moon",
+      color: "#2D3436",
+      textColor: "text-white",
+      count: "45 Songs",
+      link: "https://open.spotify.com/playlist/37i9dQZF1DX6ziVCLnTE86",
+    },
+    {
+      title: "FOCUS MODE",
+      desc: "Instrumental buat coding.",
+      icon: "fa-laptop-code",
+      color: "#F7FFF7",
+      count: "100+ Songs",
+      link: "https://open.spotify.com/playlist/37i9dQZF1DX8Uebhn9wzrS",
+    },
+    {
+      title: "KARAOKEAN",
+      desc: "Tulus, Sheila on 7, Dewa 19.",
+      icon: "fa-microphone-alt",
+      color: "#FF9F1C",
+      count: "68 Songs",
+      link: "https://open.spotify.com/playlist/37i9dQZF1DXa2SPUyWl8Y5",
+    },
   ];
 
-  let cardsHTML = '';
-  playlists.forEach(pl => {
-      const isAccent = pl.color === '#ccff00' ? 'bg-accent' : 'bg-white';
-      cardsHTML += `
-        <div class="col-lg-4 col-md-6">
-            <div class="neo-card ${isAccent}">
-                <div class="card-top">
-                    <i class="fas ${pl.icon}"></i>
-                    <div class="dots">
-                        <span></span><span></span><span></span>
+  let cardsHTML = "";
+  playlists.forEach((pl) => {
+    const textColor = pl.textColor || "text-black";
+    cardsHTML += `
+        <div class="col-lg-2 col-md-4 col-6">
+            <div class="spotify-card">
+                <div class="cover-art" style="background-color: ${pl.color}">
+                    <i class="fas ${pl.icon} ${textColor}"></i>
+                    <div class="play-overlay">
+                        <a href="${pl.link}" target="_blank" class="btn-play-circle"><i class="fas fa-play"></i></a>
                     </div>
                 </div>
-                <div class="card-body-neo">
-                    <h4>${pl.title}</h4>
-                    <p>${pl.desc}</p>
-                    <button class="btn btn-play w-100">
-                        PLAY NOW <i class="fas fa-play ms-2"></i>
-                    </button>
+                <div class="card-info mt-3">
+                    <h5 class="playlist-title text-truncate">${pl.title}</h5>
+                    <p class="playlist-desc text-truncate-2">${pl.desc}</p>
+                    <small class="playlist-meta">${pl.count}</small>
                 </div>
             </div>
         </div>
@@ -37,21 +78,18 @@ function playlistSection() {
 
   section.innerHTML = `
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-3 text-white mb-3">MY <span class="bg-white text-black px-2 border border-dark border-3">PLAYLISTS</span></h2>
-                <p class="lead text-white">Koleksi audio untuk setiap mood.</p>
+            <div class="d-flex justify-content-between align-items-end mb-4">
+                <div>
+                    
+                </div>
+                <a href="https://open.spotify.com/user/31orerj4pogknp6ttficxuzbnhei" target="_blank" class="btn btn-neo-sm">SEE ALL</a>
             </div>
             
             <div class="row g-4">
                 ${cardsHTML}
             </div>
             
-            <div class="text-center mt-5">
-                <a href="https://open.spotify.com/user/31orerj4pogknp6ttficxuzbnhei" target="_blank" 
-                   class="btn btn-spotify-neo btn-lg">
-                    <i class="fab fa-spotify me-2"></i>VIEW SPOTIFY PROFILE
-                </a>
-            </div>
+
         </div>
         
         <style>
@@ -59,81 +97,188 @@ function playlistSection() {
                 background-color: var(--neo-blue);
             }
             
-            .neo-card {
+            .spotify-card {
+                background: var(--neo-white);
+                padding: 15px;
                 border: 3px solid var(--neo-black);
-                box-shadow: var(--neo-shadow);
+                box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
                 transition: transform 0.2s;
+                cursor: pointer;
                 height: 100%;
-                display: flex;
-                flex-direction: column;
             }
             
-            .neo-card:hover {
-                transform: translate(-5px, -5px);
-                box-shadow: 10px 10px 0px var(--neo-black);
+            .spotify-card:hover {
+                transform: translate(-4px, -4px);
+                box-shadow: 8px 8px 0px var(--neo-black);
             }
 
-            .bg-white { background: var(--neo-white); }
-            .bg-accent { background: var(--neo-green); }
-            
-            .card-top {
-                padding: 1.5rem;
-                border-bottom: 3px solid var(--neo-black);
+            .cover-art {
+                width: 100%;
+                aspect-ratio: 1/1;
                 display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                background: rgba(0,0,0,0.05);
-            }
-            
-            .card-top i {
+                align-items: center;
+                justify-content: center;
                 font-size: 3rem;
-                color: var(--neo-black);
+                border: 3px solid var(--neo-black);
+                position: relative;
+                background: #eee;
             }
 
-            .dots span {
-                display: inline-block;
-                width: 10px; height: 10px;
-                background: var(--neo-black);
+            .play-overlay {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                opacity: 0;
+                transform: translateY(10px);
+                transition: all 0.2s ease;
+            }
+
+            .spotify-card:hover .play-overlay {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .btn-play-circle {
+                width: 48px;
+                height: 48px;
                 border-radius: 50%;
-                margin-left: 3px;
+                background: var(--neo-green);
+                border: 3px solid var(--neo-black);
+                color: var(--neo-black);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                box-shadow: 2px 2px 0px var(--neo-black);
+                text-decoration: none;
             }
             
-            .card-body-neo {
-                padding: 1.5rem;
-                flex-grow: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
+            .btn-play-circle:hover {
+                background: var(--neo-white);
             }
 
-            .btn-play {
+            .playlist-title {
+                color: var(--neo-black);
+                font-weight: 800;
+                margin-bottom: 5px;
+                font-size: 1rem;
+                text-transform: uppercase;
+            }
+
+            .playlist-desc {
+                color: #555;
+                font-size: 0.85rem;
+                line-height: 1.3;
+                margin-bottom: 5px;
+                font-weight: 500;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            
+            .playlist-meta {
+                color: var(--neo-blue);
+                font-size: 0.75rem;
+                font-weight: 900;
+                text-transform: uppercase;
+                background: #eee;
+                padding: 2px 6px;
+                border: 1px solid var(--neo-black);
+            }
+
+            .btn-neo-sm {
                 background: var(--neo-black);
                 color: var(--neo-white);
-                border: none;
-                border-radius: 0;
+                border: 2px solid var(--neo-white);
                 font-weight: bold;
-                margin-top: 1rem;
-                padding: 10px;
+                padding: 5px 15px;
+                text-transform: uppercase;
             }
             
-            .btn-play:hover {
-                background: #333;
-                color: var(--neo-green);
+            .btn-neo-sm:hover {
+                background: var(--neo-white);
+                color: var(--neo-black);
+                border-color: var(--neo-black);
             }
 
-            .btn-spotify-neo {
+            /* Player Bar */
+            .spotify-player {
+                background: var(--neo-white);
+                border: 3px solid var(--neo-black);
+                padding: 15px 20px;
+                box-shadow: 8px 8px 0px var(--neo-black);
+                position: relative;
+                z-index: 10;
+            }
+
+            .current-track-img {
+                width: 56px;
+                height: 56px;
                 background: var(--neo-green);
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 color: var(--neo-black);
                 border: 3px solid var(--neo-black);
-                box-shadow: 4px 4px 0px var(--neo-black);
-                font-weight: 800;
-                padding: 15px 30px;
+                font-size: 1.5rem;
+            }
+
+            .btn-play-sm {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: var(--neo-black);
+                border: 2px solid var(--neo-black);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--neo-green);
             }
             
-            .btn-spotify-neo:hover {
-                transform: translate(2px, 2px);
-                box-shadow: 1px 1px 0px var(--neo-black);
-                background: #fff;
+            .btn-play-sm:hover {
+                background: var(--neo-green);
+                color: var(--neo-black);
+            }
+
+            .progress-bar-wrapper {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 0.8rem;
+                font-weight: bold;
+                color: var(--neo-black);
+            }
+
+            .progress-line {
+                flex-grow: 1;
+                height: 8px;
+                background: #eee;
+                border: 2px solid var(--neo-black);
+                border-radius: 0;
+                overflow: hidden;
+            }
+
+            .progress-fill {
+                height: 100%;
+                background: var(--neo-blue);
+            }
+            
+            .volume-bar {
+                width: 80px;
+                height: 8px;
+                background: #eee;
+                border: 2px solid var(--neo-black);
+            }
+            
+            .player-controls i {
+                cursor: pointer;
+                transition: transform 0.1s;
+            }
+            
+            .player-controls i:hover {
+                transform: scale(1.2);
+                color: var(--neo-blue);
             }
         </style>
     `;
