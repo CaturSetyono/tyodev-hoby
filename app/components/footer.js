@@ -7,13 +7,13 @@ function Footer() {
                 <div class="col-lg-5 mb-4">
                     <h3 class="text-white mb-3">TYODEV MUSIC</h3>
                     <p class="text-gray">
-                        Mahasiswa SIA yang menggunakan musik sebagai bahan bakar produktivitas. 
-                        Menggabungkan logika akuntansi dengan kreativitas nada.
+                        Temukan playlist favoritmu juga di spotify buat nemenin hari-harimu dengan vibe positif dan energi seru!
+                        Hari yang  panjang butuh musik yang tepat untuk mengiringinya.
                     </p>
                     <div class="social-links mt-3">
-                        <a href="#" class="social-btn"><i class="fab fa-spotify"></i></a>
-                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
+                        <a href="https://open.spotify.com/user/31orerj4pogknp6ttficxuzbnhei" class="social-btn"><i class="fab fa-spotify"></i></a>
+                        <a href="https://www.instagram.com/tyodev.id/" class="social-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/CaturSetyono" class="social-btn"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 
@@ -31,7 +31,7 @@ function Footer() {
                     <div class="coding-status">
                         <div class="d-flex align-items-center">
                             <div class="status-dot"></div>
-                            <span class="ms-2 font-monospace">Project: Portfolio Re-Skin</span>
+                            <span class="ms-2 font-monospace">Project: Pemrograman Web Mobile</span>
                         </div>
                         <div class="progress mt-2" style="height: 10px; border: 1px solid white; border-radius:0;">
                             <div class="progress-bar bg-accent" role="progressbar" style="width: 85%"></div>
@@ -41,7 +41,7 @@ function Footer() {
             </div>
             
             <div class="footer-bottom border-top border-secondary pt-4 mt-4 text-center">
-                <p class="text-gray small mb-0">© 2025 Tyodev. Style: Neo-Brutalism.</p>
+                <p class="text-gray small mb-0">© Catur Setyono || 233210009</p>
             </div>
         </div>
         
