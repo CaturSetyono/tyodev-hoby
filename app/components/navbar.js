@@ -23,6 +23,9 @@ function Navbar() {
                     <li class="nav-item">
                         <a href="#favourite" class="nav-link" data-section="favourite">FAVOURITE</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#gallery" class="nav-link" data-section="gallery">GALLERY</a>
+                    </li>
                     <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
                         <a href="#music" class="btn btn-cta" data-section="music">
                             urMUSIC AI <i class="fas fa-arrow-right ms-1"></i>

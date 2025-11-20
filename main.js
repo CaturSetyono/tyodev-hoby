@@ -11,6 +11,7 @@ import reasonSection from "./app/reasonSection.js";
 import urMusicSection from "./app/urMusicSection.js";
 import playlistSection from "./app/playlistSection.js";
 import favouriteSection from "./app/favouriteSection.js";
+import galerySection from "./app/galerySection.js";
 
 class App {
   constructor() {
@@ -64,6 +65,7 @@ class App {
       { id: "reason", component: reasonSection },
       { id: "playlist", component: playlistSection },
       { id: "favourite", component: favouriteSection },
+      { id: "gallery", component: galerySection },
       { id: "music", component: urMusicSection },
     ];
 
@@ -153,7 +155,7 @@ class App {
   }
 
   handleScroll() {
-    const sections = ["home", "reason", "music", "playlist", "favourite"];
+    const sections = ["home", "reason", "playlist", "favourite", "gallery", "music"];
     const scrollPos = window.scrollY + 150; // Offset for navbar
 
     let currentSection = "home";
