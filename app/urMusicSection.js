@@ -8,12 +8,12 @@ function urMusicSection() {
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="text-center mb-4">
+                    <div class="text-center mb-4" data-aos="fade-down">
                         <h2 class="display-3 text-white">urMUSIC <span class="text-accent">AI</span></h2>
                         <p class="text-white lead">Ceritain mood kamu biar aku tau lagu yang pas buat kamu. </p
                     </div>
                     
-                    <div class="form-container-neo">
+                    <div class="form-container-neo" data-aos="zoom-in" data-aos-delay="200">
                         
                         <div class="p-4">
                             <form id="moodForm">
