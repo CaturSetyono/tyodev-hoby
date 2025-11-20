@@ -6,7 +6,7 @@ function reasonSection() {
             <div class="text-center mb-5">
                 <h2 class="display-3 text-white mb-3">WHY <span class="highlight text-">MUSIC?</span></h2>
                 <div class="bg-white d-inline-block px-3 py-1 border border-dark border-3">
-                    <p class="lead fw-bold mb-0">Logika Akuntansi x Emosi Musik</p>
+                    <p class="lead fw-bold mb-0">Hobby x Music</p>
                 </div>
             </div>
             
