@@ -10,14 +10,13 @@ function homeSection() {
             <div class="row align-items-center">
                 <div class="col-lg-7 order-2 order-lg-1">
                     <div class="hero-content">
-                        <div class="badge-neo mb-3">STUDENT /// SIA</div>
-                        <h1 class="display-2 mb-2 text-white">ACCOUNTING BY DAY,</h1>
+                        <div class="badge-neo mb-3">PEMROGRAMAN WEB MOBILE</div>
+                        <h1 class="display-2 mb-2 text-white">LIFE BY DAY,</h1>
                         <h1 class="display-2 mb-4 text-highlight">MUSIC BY NIGHT</h1>
                         
                         <div class="card-neo-simple mb-4">
                             <p class="lead mb-0">
-                                Hai, gue <strong>Tyo</strong>! Mahasiswa Sistem Informasi Akuntansi yang menjadikan lagu sebagai pelarian dari jurnal umum. 
-                                Ini adalah perpustakaan suaraku.
+                                Hai, aku <strong>Tyo</strong>! Musik bukan cuma sekedar hiburan ,musik itu hoby yang bikikn tenang jadi dengerin musik itu kayak terapi buat aku. Yuk, jelajahi playlist favoritku yang penuh vibe positif dan energi seru!
                             </p>
                         </div>
 
