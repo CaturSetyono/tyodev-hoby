@@ -16,14 +16,14 @@ function homeSection() {
                         
                         <div class="card-neo-simple mb-4">
                             <p class="lead mb-0">
-                                Hai, aku <strong>Tyo</strong>! Musik bukan cuma sekedar hiburan ,musik itu hoby yang bikikn tenang jadi dengerin musik itu kayak terapi buat aku. Yuk, jelajahi playlist favoritku yang penuh vibe positif dan energi seru!
+                                Hai, aku <strong>Tyo</strong>! Musik bukan cuma sekedar hiburan ,musik itu hoby yang bikin tenang jadi dengerin musik itu kayak terapi buat aku. Yuk, jelajahi playlist favoritku yang penuh vibe positif dan energi seru!
                             </p>
                         </div>
 
                         <div class="d-flex gap-3 flex-wrap">
-                            <button class="btn btn-neo-primary btn-lg" onclick="document.querySelector('[data-section=\"reason\"]').click()">
+                            <a href="#reason" class="btn btn-neo-primary btn-lg">
                                 EXPLORE VIBE <i class="fas fa-arrow-down ms-2"></i>
-                            </button>
+                            </a>
                             <a href="https://open.spotify.com/user/31orerj4pogknp6ttficxuzbnhei" target="_blank" 
                                class="btn btn-neo-secondary btn-lg">
                                 <i class="fab fa-spotify me-2"></i>SPOTIFY
