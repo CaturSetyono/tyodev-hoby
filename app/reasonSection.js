@@ -4,71 +4,70 @@ function reasonSection() {
   section.innerHTML = `
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold mb-3">Why I Love Music 🎵</h2>
-                <p class="lead text-muted">Musik bukan hanya suara, tapi perasaan yang mengalir</p>
+                <h2 class="display-3 text-white mb-3">WHY <span class="highlight">MUSIC?</span></h2>
+                <div class="bg-white d-inline-block px-3 py-1 border border-dark border-3">
+                    <p class="lead fw-bold mb-0">Logika Akuntansi x Emosi Musik</p>
+                </div>
             </div>
             
-            <div class="row g-4">
+            <div class="row g-4 mb-5">
                 <div class="col-lg-4">
-                    <div class="reason-card h-100">
+                    <div class="reason-card">
                         <div class="card-icon">
                             <i class="fas fa-brain"></i>
                         </div>
-                        <h4>Fokus & Produktivitas</h4>
-                        <p>Lo-fi dan instrumental music jadi teman terbaik saat ngoding atau belajar. 
-                        Rhythm yang konsisten membantu otak tetap fokus tanpa distraksi.</p>
+                        <h4>FOCUS MODE</h4>
+                        <p>Lo-fi dan instrumental music jadi teman terbaik saat ngoding atau belajar jurnal umum. Rhythm yang konsisten membantu otak tetap fokus.</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-4">
-                    <div class="reason-card h-100">
-                        <div class="card-icon">
-                            <i class="fas fa-heart"></i>
+                    <div class="reason-card accent-bg">
+                        <div class="card-icon white-icon">
+                            <i class="fas fa-bolt"></i>
                         </div>
-                        <h4>Emotional Support</h4>
-                        <p>Saat lagi down atau stress karena deadline, musik jadi pelarian. 
-                        Dari yang bikin semangat sampai yang bikin tenang - semua ada tempatnya.</p>
+                        <h4>EMOTIONAL RESET</h4>
+                        <p>Saat balance sheet nggak balance, musik jadi tombol reset. Dari stress jadi semangat lagi buat nyari selisihnya.</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-4">
-                    <div class="reason-card h-100">
+                    <div class="reason-card">
                         <div class="card-icon">
                             <i class="fas fa-users"></i>
                         </div>
-                        <h4>Social Connection</h4>
-                        <p>Musik jadi bahasa universal yang menghubungkan. Diskusi tentang band favorit 
-                        atau sharing playlist bareng temen selalu seru!</p>
+                        <h4>SOCIAL VIBE</h4>
+                        <p>Musik jadi bahasa universal. Sharing playlist bareng temen sekelas selalu jadi topik seru pas lagi break kuliah.</p>
                     </div>
                 </div>
             </div>
             
             <div class="row mt-5">
                 <div class="col-lg-8 mx-auto">
-                    <div class="music-journey">
-                        <h3 class="text-center mb-4">My Musical Journey 🚀</h3>
+                    <div class="journey-box">
+                        <h3 class="text-center mb-4 border-bottom border-3 border-dark pb-3">MY TIMELINE 🚀</h3>
                         <div class="timeline">
                             <div class="timeline-item">
-                                <div class="timeline-marker"></div>
+                                <div class="year-badge">2005</div>
                                 <div class="timeline-content">
-                                    <h5>Childhood (2005-2012)</h5>
-                                    <p>Dimulai dari lagu anak-anak dan pop Indonesia. Era Peterpan, Ungu, dan ST12!</p>
+                                    <h5>CHILDHOOD ERA</h5>
+                                    <p>Era Peterpan, Ungu, dan ST12! Awal mula kenal nada.</p>
                                 </div>
                             </div>
                             
                             <div class="timeline-item">
-                                <div class="timeline-marker"></div>
+                                <div class="year-badge">2013</div>
                                 <div class="timeline-content">
-                                    <h5>Teenager (2013-2018)</h5>
-                                    <p>Mulai explore rock, alternative, dan indie. Green Day, Radiohead, dan Arctic Monkeys jadi favorit.</p>
+                                    <h5>TEENAGE ROCK</h5>
+                                    <p>Green Day, Radiohead, Arctic Monkeys. Fase rebel dimulai.</p>
                                 </div>
                             </div>
                             
                             <div class="timeline-item">
-                                <div class="timeline-marker"></div>
+                                <div class="year-badge">NOW</div>
                                 <div class="timeline-content">
-                                    <h5>College Era (2019-Now)</h5>
-                                    <p>Genre makin beragam: lo-fi, R&B, electronic, bahkan K-pop! Musik jadi soundtrack kehidupan kuliah.</p>
+                                    <h5>COLLEGE MIX</h5>
+                                    <p>Lo-fi buat belajar, K-pop buat semangat, Jazz buat santai.</p>
                                 </div>
                             </div>
                         </div>
@@ -79,87 +78,82 @@ function reasonSection() {
         
         <style>
             .reason-section {
-                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-                min-height: 100vh;
+                background-color: var(--neo-blue);
+            }
+
+            .highlight {
+                background: var(--neo-green);
+                color: var(--neo-black);
+                padding: 0 10px;
+                box-shadow: 5px 5px 0px var(--neo-black);
             }
             
             .reason-card {
-                background: white;
+                background: var(--neo-white);
                 padding: 2rem;
-                border-radius: 20px;
-                text-align: center;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                transition: all 0.3s ease;
-                border: none;
+                border: 3px solid var(--neo-black);
+                box-shadow: var(--neo-shadow);
+                height: 100%;
+                transition: transform 0.2s;
             }
             
             .reason-card:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+                transform: translate(-5px, -5px);
+                box-shadow: 10px 10px 0px var(--neo-black);
+            }
+
+            .reason-card.accent-bg {
+                background: var(--neo-green);
             }
             
             .card-icon {
-                width: 80px;
-                height: 80px;
-                background: linear-gradient(45deg, #667eea, #764ba2);
+                width: 70px; height: 70px;
+                background: var(--neo-black);
+                color: var(--neo-green);
+                border: 3px solid var(--neo-black);
                 border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 1.5rem;
-                color: white;
-                font-size: 2rem;
+                display: flex; align-items: center; justify-content: center;
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+                box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+            }
+
+            .white-icon {
+                background: var(--neo-white);
+                color: var(--neo-black);
             }
             
-            .music-journey {
-                background: white;
-                padding: 3rem;
-                border-radius: 20px;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            }
-            
-            .timeline {
-                position: relative;
-                padding-left: 2rem;
-            }
-            
-            .timeline::before {
-                content: '';
-                position: absolute;
-                left: 20px;
-                top: 0;
-                bottom: 0;
-                width: 2px;
-                background: linear-gradient(to bottom, #667eea, #764ba2);
+            .journey-box {
+                background: var(--neo-white);
+                border: 3px solid var(--neo-black);
+                box-shadow: var(--neo-shadow);
+                padding: 2rem;
             }
             
             .timeline-item {
-                position: relative;
+                display: flex;
+                gap: 1.5rem;
                 margin-bottom: 2rem;
+                align-items: flex-start;
             }
             
-            .timeline-marker {
-                position: absolute;
-                left: -32px;
-                top: 5px;
-                width: 20px;
-                height: 20px;
-                background: linear-gradient(45deg, #667eea, #764ba2);
-                border-radius: 50%;
-                border: 3px solid white;
-                box-shadow: 0 0 0 3px #667eea33;
-            }
-            
-            .timeline-content {
-                background: #f8f9fa;
-                padding: 1.5rem;
-                border-radius: 10px;
-                border-left: 4px solid #667eea;
+            .year-badge {
+                background: var(--neo-black);
+                color: var(--neo-white);
+                font-family: 'Archivo Black';
+                padding: 5px 10px;
+                transform: rotate(-5deg);
+                flex-shrink: 0;
             }
             
             .timeline-content h5 {
-                color: #667eea;
-                margin-bottom: 0.5rem;
+                margin-bottom: 0.2rem;
+            }
+            
+            .timeline-content p {
+                margin-bottom: 0;
+                border-left: 3px solid var(--neo-green);
+                padding-left: 10px;
             }
         </style>
     `;
