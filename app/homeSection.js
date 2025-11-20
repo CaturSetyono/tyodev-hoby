@@ -1,26 +1,22 @@
 function homeSection() {
   const section = document.createElement("section");
-  section.classList.add(
-    "home-section",
-    "d-flex",
-    "align-items-center"
-  );
+  section.classList.add("home-section", "d-flex", "align-items-center");
   section.innerHTML = `
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-7 order-2 order-lg-1">
+                <div class="col-lg-7 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
                     <div class="hero-content">
                         <div class="badge-neo mb-3">PEMROGRAMAN WEB MOBILE</div>
                         <h1 class="display-2 mb-2 text-white">LIFE BY DAY,</h1>
                         <h1 class="display-2 mb-4 text-highlight">MUSIC BY NIGHT</h1>
                         
-                        <div class="card-neo-simple mb-4">
+                        <div class="card-neo-simple mb-4" data-aos="fade-up" data-aos-delay="200">
                             <p class="lead mb-0">
                                 Hai, aku <strong>Tyo</strong>! Musik bukan cuma sekedar hiburan ,musik itu hoby yang bikin tenang jadi dengerin musik itu kayak terapi buat aku. Yuk, jelajahi playlist favoritku yang penuh vibe positif dan energi seru!
                             </p>
                         </div>
 
-                        <div class="d-flex gap-3 flex-wrap">
+                        <div class="d-flex gap-3 flex-wrap" data-aos="fade-up" data-aos-delay="400">
                             <a href="#reason" class="btn btn-neo-primary btn-lg">
                                 EXPLORE VIBE <i class="fas fa-arrow-down ms-2"></i>
                             </a>
@@ -32,7 +28,7 @@ function homeSection() {
                     </div>
                 </div>
                 
-                <div class="col-lg-5 order-1 order-lg-2 mb-5 mb-lg-0 text-center">
+                <div class="col-lg-5 order-1 order-lg-2 mb-5 mb-lg-0 text-center" data-aos="fade-left" data-aos-duration="1200">
                     <div class="visual-wrapper">
                         <div class="vinyl-neo">
                             <div class="vinyl-inner"></div>
@@ -40,7 +36,7 @@ function homeSection() {
                                 <i class="fas fa-music"></i>
                             </div>
                         </div>
-                        <div class="decoration-star">
+                        <div class="decoration-star" data-aos="zoom-in" data-aos-delay="600">
                             <i class="fas fa-star"></i>
                         </div>
                     </div>
