@@ -55,10 +55,11 @@ function playlistSection() {
   ];
 
   let cardsHTML = "";
-  playlists.forEach((pl) => {
+  playlists.forEach((pl, index) => {
     const textColor = pl.textColor || "text-black";
+    const delay = index * 100; // Staggered delay
     cardsHTML += `
-        <div class="col-lg-2 col-md-4 col-6">
+        <div class="col-lg-2 col-md-4 col-6" data-aos="flip-left" data-aos-delay="${delay}">
             <div class="spotify-card">
                 <div class="cover-art" style="background-color: ${pl.color}">
                     <i class="fas ${pl.icon} ${textColor}"></i>
@@ -78,7 +79,7 @@ function playlistSection() {
 
   section.innerHTML = `
         <div class="container">
-            <div class="d-flex justify-content-between align-items-end mb-4">
+            <div class="d-flex justify-content-between align-items-end mb-4" data-aos="fade-right">
                 <div>
                     
                 </div>
