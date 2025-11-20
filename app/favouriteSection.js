@@ -2,7 +2,10 @@ function favouriteSection() {
   const section = document.createElement("section");
   section.classList.add("favourite-section", "py-5");
 
-  // Data lagu dengan URL Hardcoded untuk performa maksimal di mobile
+  // Data lagu dengan Spotify ID
+  // CARA CARI ID: Buka Spotify > Klik 3 titik di lagu > Share > Copy Song Link
+  // Ambil kode setelah "track/" sampai sebelum tanda tanya "?"
+  // Contoh: https://open.spotify.com/track/4uUG5RXrOk84mYEfFvj3cK?si=... -> ID: 4uUG5RXrOk84mYEfFvj3cK
   const songs = [
     {
       title: "Secukupnya",
@@ -12,8 +15,7 @@ function favouriteSection() {
       icon: "fa-music",
       color: "#ccff00",
       delay: 0,
-      previewUrl:
-        "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/a6/5c/52/a65c529e-74a4-7b98-3e70-7f812a504a96/mzaf_1626184544281484870.plus.aac.p.m4a",
+      spotifyId: "5drW6PGRxkE6MxttzVLNk5", // Ganti dengan ID asli
     },
     {
       title: "Andai Saja",
@@ -23,8 +25,7 @@ function favouriteSection() {
       icon: "fa-magic",
       color: "#ffffff",
       delay: 100,
-      previewUrl:
-        "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/34/a5/23/34a52368-643a-43a6-c96c-fd89c8d077cf/mzaf_14381344851997934839.plus.aac.p.m4a",
+      spotifyId: "2hb8n44vpefszgLwkEVXhU", // Ganti dengan ID asli
     },
     {
       title: "Kenangan Manis",
@@ -34,8 +35,7 @@ function favouriteSection() {
       icon: "fa-guitar",
       color: "#ccff00",
       delay: 200,
-      previewUrl:
-        "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/09/89/1b/09891b19-1eb0-2f88-3339-1fad9861b6ed/mzaf_15403338971115180038.plus.aac.p.m4a",
+      spotifyId: "5jLzpxUOnCsX5tfq7TGY9v", // Ganti dengan ID asli
     },
     {
       title: "33x",
@@ -45,8 +45,7 @@ function favouriteSection() {
       icon: "fa-briefcase",
       color: "#ffffff",
       delay: 300,
-      previewUrl:
-        "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/c6/be/d3/c6bed396-2b3c-0aee-dcec-d06a9506c781/mzaf_9218744999071382246.plus.aac.p.m4a",
+      spotifyId: "0I3I9hgBRat6HR5Gzy26jx", // Ganti dengan ID asli
     },
     {
       title: "Sedia Aku Sebelum Hujan",
@@ -56,8 +55,7 @@ function favouriteSection() {
       icon: "fa-cloud-rain",
       color: "#ccff00",
       delay: 400,
-      previewUrl:
-        "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9a/8a/f5/9a8af565-7b11-030b-6dc4-72a354411691/mzaf_1147188470658269281.plus.aac.p.m4a",
+      spotifyId: "64qfw9JZl3RYCrq4Mn0WvT", // Ganti dengan ID asli
     },
     {
       title: "Mesra-mesraanya kecil-kecilan dulu",
@@ -67,30 +65,41 @@ function favouriteSection() {
       icon: "fa-heart",
       color: "#ffffff",
       delay: 500,
-      previewUrl:
-        "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/57/db/a8/57dba8ad-c886-2178-69bb-1ea1ca93380f/mzaf_13362817603498077160.plus.aac.p.m4a",
+      spotifyId: "1NzyVlr2fOWOfigbwDabme", // Ganti dengan ID asli
     },
   ];
 
-  // Helper untuk bikin item lagu
+  // Helper untuk bikin item lagu dengan Spotify Embed
   const createSongItem = (song, index) => `
     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="${song.delay}">
-        <div class="song-neo">
-            <div class="song-icon" style="background: ${song.color}">
-                <i class="fas ${song.icon}"></i>
-            </div>
-            <div class="song-details">
-                <div class="d-flex justify-content-between align-items-start">
-                    <div>
-                        <h4 class="mb-0 song-title">${song.title}</h4>
-                        <div class="artist-badge song-artist">${song.artist}</div>
+        <div class="song-neo h-100">
+            <div class="song-details d-flex flex-column h-100">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="d-flex align-items-center">
+                        <div class="song-icon-small me-3" style="background: ${song.color}">
+                            <i class="fas ${song.icon}"></i>
+                        </div>
+                        <div>
+                            <h4 class="mb-0 song-title">${song.title}</h4>
+                            <div class="artist-badge song-artist">${song.artist}</div>
+                        </div>
                     </div>
-                    <button class="btn btn-sm btn-icon play-btn-neo" data-index="${index}">
-                        <i class="fas fa-play"></i>
-                    </button>
                 </div>
-                <p class="album-text mt-2 mb-2"><i class="fas fa-compact-disc me-1"></i> ${song.album}</p>
-                <p class="desc-text">${song.desc}</p>
+                
+                <p class="desc-text mb-3 flex-grow-1">${song.desc}</p>
+                
+                <!-- Spotify Embed -->
+                <div class="spotify-embed-wrapper">
+                    <iframe style="border-radius:12px" 
+                        src="https://open.spotify.com/embed/track/${song.spotifyId}?utm_source=generator&theme=0" 
+                        width="100%" 
+                        height="80" 
+                        frameBorder="0" 
+                        allowfullscreen="" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy">
+                    </iframe>
+                </div>
             </div>
         </div>
     </div>
@@ -126,10 +135,8 @@ function favouriteSection() {
                 background: var(--neo-white);
                 border: 3px solid var(--neo-black);
                 box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
-                display: flex;
-                align-items: stretch;
-                height: 100%;
                 transition: transform 0.2s;
+                overflow: hidden;
             }
             
             .song-neo:hover {
@@ -137,20 +144,20 @@ function favouriteSection() {
                 box-shadow: 8px 8px 0px var(--neo-black);
             }
 
-            .song-icon {
-                width: 100px;
-                border-right: 3px solid var(--neo-black);
+            .song-icon-small {
+                width: 50px;
+                height: 50px;
+                border: 2px solid var(--neo-black);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 2.5rem;
+                font-size: 1.2rem;
                 color: var(--neo-black);
                 flex-shrink: 0;
             }
 
             .song-details {
-                padding: 1.2rem;
-                flex-grow: 1;
+                padding: 1.5rem;
             }
 
             .artist-badge {
@@ -164,131 +171,20 @@ function favouriteSection() {
                 text-transform: uppercase;
             }
 
-            .album-text {
-                font-size: 0.85rem;
-                color: #666;
-                border-bottom: 2px dashed #ccc;
-                padding-bottom: 5px;
-            }
-
             .desc-text {
-                font-size: 0.9rem;
-                line-height: 1.4;
-                margin-bottom: 0;
+                font-size: 0.95rem;
+                line-height: 1.5;
+                color: #333;
             }
 
-            .btn-icon {
+            .spotify-embed-wrapper {
+                margin-top: auto;
                 border: 2px solid var(--neo-black);
-                border-radius: 50%;
-                width: 35px; height: 35px;
-                display: flex; align-items: center; justify-content: center;
-            }
-            
-            .btn-icon:hover {
-                background: var(--neo-green);
-            }
-
-            .btn-black {
-                background: var(--neo-black);
-                color: var(--neo-white);
-                border-radius: 0;
-                font-weight: bold;
-            }
-            .btn-black:hover {
-                background: #333;
-                color: var(--neo-green);
+                border-radius: 14px; /* Sedikit lebih besar dari iframe radius */
+                background: #000;
             }
         </style>
     `;
-
-  // Audio Logic - Single Instance untuk Mobile Stability
-  const audioPlayer = new Audio();
-  let currentPlayingIndex = -1; // Track index lagu yang sedang diputar
-
-  // Reset UI saat lagu selesai
-  audioPlayer.onended = () => {
-    const activeBtn = section.querySelector(
-      `.play-btn-neo[data-index="${currentPlayingIndex}"]`
-    );
-    if (activeBtn) {
-      const icon = activeBtn.querySelector("i");
-      icon.classList.remove("fa-pause");
-      icon.classList.add("fa-play");
-    }
-    currentPlayingIndex = -1;
-  };
-
-  // Handle Error Playback
-  audioPlayer.onerror = (e) => {
-    console.error("Audio Error:", e);
-    alert("Gagal memutar audio. Koneksi internet mungkin tidak stabil.");
-    currentPlayingIndex = -1;
-
-    // Reset semua icon loading
-    section.querySelectorAll(".fa-spinner").forEach((icon) => {
-      icon.classList.remove("fa-spinner", "fa-spin");
-      icon.classList.add("fa-play");
-    });
-  };
-
-  section.querySelectorAll(".play-btn-neo").forEach((btn) => {
-    btn.addEventListener("click", async function () {
-      const icon = this.querySelector("i");
-      const index = parseInt(this.getAttribute("data-index"));
-      const song = songs[index];
-
-      // 1. Logika Pause: Jika klik tombol yang sama dan sedang main
-      if (currentPlayingIndex === index && !audioPlayer.paused) {
-        audioPlayer.pause();
-        icon.classList.remove("fa-pause");
-        icon.classList.add("fa-play");
-        return;
-      }
-
-      // 2. Logika Ganti Lagu: Reset tombol lagu sebelumnya
-      if (currentPlayingIndex !== -1 && currentPlayingIndex !== index) {
-        const prevBtn = section.querySelector(
-          `.play-btn-neo[data-index="${currentPlayingIndex}"]`
-        );
-        if (prevBtn) {
-          const prevIcon = prevBtn.querySelector("i");
-          prevIcon.classList.remove("fa-pause", "fa-spinner", "fa-spin");
-          prevIcon.classList.add("fa-play");
-        }
-      }
-
-      // 3. Logika Play
-      // Set loading state
-      icon.classList.remove("fa-play");
-      icon.classList.add("fa-spinner", "fa-spin");
-
-      try {
-        // Set source langsung (tanpa fetch)
-        audioPlayer.src = song.previewUrl;
-        currentPlayingIndex = index;
-
-        // Promise play() untuk handle autoplay policy
-        await audioPlayer.play();
-
-        // Jika berhasil play
-        icon.classList.remove("fa-spinner", "fa-spin");
-        icon.classList.add("fa-pause");
-      } catch (error) {
-        console.error("Playback failed:", error);
-        icon.classList.remove("fa-spinner", "fa-spin");
-        icon.classList.add("fa-play");
-
-        if (error.name === "NotAllowedError") {
-          alert(
-            "Browser memblokir audio. Silakan klik tombol play sekali lagi."
-          );
-        } else {
-          alert("Gagal memutar lagu: " + error.message);
-        }
-        currentPlayingIndex = -1;
-      }
-    });
-  });
 
   return section;
 }
