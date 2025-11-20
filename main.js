@@ -1,3 +1,8 @@
+// ==========================================================================
+//   Main Application - Tyodev Music Journey
+//   Single Page Application with Smooth Scrolling Navigation
+// ==========================================================================
+
 // Import components
 import Navbar from "./app/components/navbar.js";
 import Footer from "./app/components/footer.js";
@@ -9,6 +14,7 @@ import favouriteSection from "./app/favouriteSection.js";
 
 class App {
   constructor() {
+    this.currentSection = "home";
     this.init();
   }
 
@@ -29,6 +35,7 @@ class App {
     // Add main container
     const main = document.createElement("main");
     main.id = "main-content";
+    main.style.minHeight = "100vh";
     body.appendChild(main);
 
     // Add footer
@@ -37,9 +44,12 @@ class App {
 
   loadAllSections() {
     const mainContent = document.getElementById("main-content");
-    if (!mainContent) return;
+    if (!mainContent) {
+      console.error("Main content element not found");
+      return;
+    }
 
-    // Load all sections with proper IDs
+    // Load all sections with proper IDs and spacing
     const sections = [
       { id: "home", component: homeSection },
       { id: "reason", component: reasonSection },
@@ -48,14 +58,21 @@ class App {
       { id: "favourite", component: favouriteSection },
     ];
 
-    sections.forEach(({ id, component }) => {
-      const section = component();
-      section.id = id;
-      // Add some spacing between sections
-      if (id !== "home") {
-        section.style.paddingTop = "100px";
+    sections.forEach(({ id, component }, index) => {
+      try {
+        const section = component();
+        section.id = id;
+
+        // Add spacing between sections (except first one)
+        if (index > 0) {
+          section.style.paddingTop = "100px";
+        }
+
+        mainContent.appendChild(section);
+        console.log(`✅ Loaded section: ${id}`);
+      } catch (error) {
+        console.error(`❌ Error loading section ${id}:`, error);
       }
-      mainContent.appendChild(section);
     });
   }
 
