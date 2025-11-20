@@ -3,7 +3,7 @@ function reasonSection() {
   section.classList.add("reason-section", "py-5");
   section.innerHTML = `
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-down">
                 <h2 class="display-3 text-white mb-3">WHY <span class="highlight text-">MUSIC?</span></h2>
                 <div class="bg-white d-inline-block px-3 py-1 border border-dark border-3">
                     <p class="lead fw-bold mb-0">Hobby x Music</p>
@@ -11,7 +11,7 @@ function reasonSection() {
             </div>
             
             <div class="row g-4 mb-2">
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="0">
                     <div class="reason-card">
                         <div class="card-icon">
                             <i class="fas fa-brain"></i>
@@ -21,7 +21,7 @@ function reasonSection() {
                     </div>
                 </div>
                 
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="reason-card accent-bg">
                         <div class="card-icon white-icon">
                             <i class="fas fa-bolt"></i>
@@ -31,7 +31,7 @@ function reasonSection() {
                     </div>
                 </div>
                 
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="reason-card">
                         <div class="card-icon">
                             <i class="fas fa-users"></i>
