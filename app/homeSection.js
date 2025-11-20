@@ -24,7 +24,7 @@ function homeSection() {
                             Mari jelajahi dunia musik saya! 🎧
                         </p>
                         <div class="d-flex gap-3">
-                            <button class="btn btn-primary btn-lg rounded-pill px-4" onclick="document.querySelector('[data-section=\"reason\"]').click()">
+                            <button class="btn btn-primary btn-lg rounded-pill px-4" data-section="reason">
                                 <i class="fas fa-heart me-2"></i>Kenapa Musik?
                             </button>
                             <a href="https://open.spotify.com/user/31orerj4pogknp6ttficxuzbnhei" target="_blank" 
