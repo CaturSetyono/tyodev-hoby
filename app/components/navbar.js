@@ -70,8 +70,14 @@ function Navbar() {
                 background-color: rgba(255,255,255,0.3);
                 font-weight: 600;
             }
+            html {
+                scroll-behavior: smooth;
+            }
             body {
                 padding-top: 80px;
+            }
+            .nav-link {
+                cursor: pointer;
             }
         </style>
     `;
