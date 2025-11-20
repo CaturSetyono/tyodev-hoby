@@ -23,6 +23,15 @@ class App {
     this.loadAllSections();
     this.setupSmoothScrolling();
     this.setupScrollSpy();
+
+    // Initialize AOS
+    if (typeof AOS !== "undefined") {
+      AOS.init({
+        duration: 1000,
+        once: false,
+        mirror: true,
+      });
+    }
   }
 
   renderLayout() {
@@ -53,9 +62,9 @@ class App {
     const sections = [
       { id: "home", component: homeSection },
       { id: "reason", component: reasonSection },
-      { id: "music", component: urMusicSection },
       { id: "playlist", component: playlistSection },
       { id: "favourite", component: favouriteSection },
+      { id: "music", component: urMusicSection },
     ];
 
     sections.forEach(({ id, component }, index) => {
