@@ -3,14 +3,13 @@ function Navbar() {
   nav.classList.add(
     "navbar",
     "navbar-expand-lg",
-    "navbar-dark",
-    "custom-navbar",
-    "fixed-top"
+    "fixed-top",
+    "navbar-neo"
   );
   nav.innerHTML = `
         <div class="container">
-            <a href="#home" class="navbar-brand fw-bold">
-                <i class="fas fa-music me-2"></i>Tyodev Music
+            <a href="#home" class="navbar-brand d-flex align-items-center">
+                <i class="fas fa-bolt me-2 text-primary"></i>TYODEV
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -18,66 +17,77 @@ function Navbar() {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a href="#home" class="nav-link active" data-section="home">
-                            <i class="fas fa-home me-1"></i>Home
-                        </a>
+                        <a href="#home" class="nav-link active" data-section="home">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#reason" class="nav-link" data-section="reason">
-                            <i class="fas fa-heart me-1"></i>Why Music
-                        </a>
+                        <a href="#reason" class="nav-link" data-section="reason">REASON</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#music" class="nav-link" data-section="music">
-                            <i class="fas fa-headphones me-1"></i>Your Music
-                        </a>
+                        <a href="#playlist" class="nav-link" data-section="playlist">PLAYLIST</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#playlist" class="nav-link" data-section="playlist">
-                            <i class="fas fa-list me-1"></i>Playlist
-                        </a>
+                        <a href="#favourite" class="nav-link" data-section="favourite">FAVOURITE</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#favourite" class="nav-link" data-section="favourite">
-                            <i class="fas fa-star me-1"></i>Favourites
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="#music" class="btn btn-cta" data-section="music">
+                            urMUSIC AI <i class="fas fa-arrow-right ms-1"></i>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
         <style>
-            .custom-navbar {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-                box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-                transition: all 0.3s ease;
+            .navbar-neo {
+                background-color: var(--neo-white);
+                border-bottom: var(--neo-border);
+                padding: 1rem 0;
             }
-            .custom-navbar .navbar-brand {
-                font-size: 1.5rem;
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            
+            .navbar-brand {
+                font-size: 1.8rem;
+                color: var(--neo-black) !important;
+                text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
             }
-            .custom-navbar .nav-link {
-                font-weight: 500;
-                margin: 0 10px;
-                transition: all 0.3s ease;
-                border-radius: 25px;
-                padding: 8px 16px !important;
+            
+            .text-primary {
+                color: var(--neo-blue) !important;
             }
-            .custom-navbar .nav-link:hover {
-                background-color: rgba(255,255,255,0.2);
-                transform: translateY(-2px);
-            }
-            .custom-navbar .nav-link.active {
-                background-color: rgba(255,255,255,0.3);
-                font-weight: 600;
-            }
-            html {
-                scroll-behavior: smooth;
-            }
-            body {
-                padding-top: 80px;
-            }
+
             .nav-link {
-                cursor: pointer;
+                font-weight: 800;
+                color: var(--neo-black) !important;
+                font-size: 0.9rem;
+                margin: 0 5px;
+                border: 2px solid transparent;
+                transition: all 0.2s ease;
+            }
+            
+            .nav-link:hover, .nav-link.active {
+                background-color: var(--neo-green);
+                border: 2px solid var(--neo-black);
+                box-shadow: 3px 3px 0px var(--neo-black);
+                transform: translate(-2px, -2px);
+            }
+
+            .btn-cta {
+                background-color: var(--neo-black);
+                color: var(--neo-green);
+                border: 2px solid var(--neo-black);
+                border-radius: 0;
+                font-weight: 800;
+                box-shadow: 4px 4px 0px var(--neo-green);
+                transition: all 0.2s;
+            }
+
+            .btn-cta:hover {
+                transform: translate(2px, 2px);
+                box-shadow: 1px 1px 0px var(--neo-green);
+                color: var(--neo-green);
+            }
+            
+            .navbar-toggler {
+                border: 3px solid var(--neo-black);
+                border-radius: 0;
             }
         </style>
     `;
