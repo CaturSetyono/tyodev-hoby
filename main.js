@@ -9,14 +9,14 @@ import favouriteSection from "./app/favouriteSection.js";
 
 class App {
   constructor() {
-    this.currentSection = "home";
     this.init();
   }
 
   init() {
     this.renderLayout();
-    this.setupRouting();
-    this.loadSection("home");
+    this.loadAllSections();
+    this.setupSmoothScrolling();
+    this.setupScrollSpy();
   }
 
   renderLayout() {
@@ -29,15 +29,38 @@ class App {
     // Add main container
     const main = document.createElement("main");
     main.id = "main-content";
-    main.className = "min-vh-100";
     body.appendChild(main);
 
     // Add footer
     body.appendChild(Footer());
   }
 
-  setupRouting() {
-    // Handle navigation clicks
+  loadAllSections() {
+    const mainContent = document.getElementById("main-content");
+    if (!mainContent) return;
+
+    // Load all sections with proper IDs
+    const sections = [
+      { id: "home", component: homeSection },
+      { id: "reason", component: reasonSection },
+      { id: "music", component: urMusicSection },
+      { id: "playlist", component: playlistSection },
+      { id: "favourite", component: favouriteSection },
+    ];
+
+    sections.forEach(({ id, component }) => {
+      const section = component();
+      section.id = id;
+      // Add some spacing between sections
+      if (id !== "home") {
+        section.style.paddingTop = "100px";
+      }
+      mainContent.appendChild(section);
+    });
+  }
+
+  setupSmoothScrolling() {
+    // Handle navigation clicks for smooth scrolling
     document.addEventListener("click", (e) => {
       if (
         e.target.classList.contains("nav-link") ||
@@ -47,82 +70,80 @@ class App {
         e.preventDefault();
 
         const target = e.target.closest("[data-section]") || e.target;
-        const section =
-          target.dataset.section ||
-          target.textContent.toLowerCase().replace(/\\s+/g, "");
-        this.loadSection(section);
+        const sectionId = target.dataset.section;
+
+        if (sectionId) {
+          this.scrollToSection(sectionId);
+        }
       }
     });
 
-    // Handle browser back/forward
-    window.addEventListener("popstate", (e) => {
-      const section = e.state?.section || "home";
-      this.loadSection(section, false);
-    });
-
-    // Handle hash changes
+    // Handle hash changes for direct URL access
     window.addEventListener("hashchange", () => {
       const hash = window.location.hash.substring(1);
       if (hash) {
-        this.loadSection(hash, false);
+        this.scrollToSection(hash);
       }
     });
 
-    // Load initial section from hash
+    // Handle initial hash on page load
     const initialHash = window.location.hash.substring(1);
     if (initialHash) {
-      this.loadSection(initialHash, false);
+      setTimeout(() => this.scrollToSection(initialHash), 100);
     }
   }
 
-  loadSection(sectionName, pushState = true) {
-    const mainContent = document.getElementById("main-content");
-    if (!mainContent) return;
+  scrollToSection(sectionId) {
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+      const navbarHeight = 80; // Height of fixed navbar
+      const targetPosition = targetSection.offsetTop - navbarHeight;
 
-    mainContent.innerHTML = "";
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
 
-    let section;
-    switch (sectionName.toLowerCase()) {
-      case "home":
-        section = homeSection();
-        break;
-      case "reason":
-      case "whymusic":
-        section = reasonSection();
-        sectionName = "reason";
-        break;
-      case "music":
-      case "urmusic":
-        section = urMusicSection();
-        sectionName = "music";
-        break;
-      case "playlist":
-        section = playlistSection();
-        break;
-      case "favourite":
-      case "favourites":
-        section = favouriteSection();
-        sectionName = "favourite";
-        break;
-      default:
-        section = homeSection();
-        sectionName = "home";
-    }
-
-    if (section) {
-      mainContent.appendChild(section);
-      this.currentSection = sectionName;
-
-      // Update URL
-      if (pushState) {
-        history.pushState({ section: sectionName }, "", `#${sectionName}`);
-      }
+      // Update URL hash
+      history.replaceState(null, null, `#${sectionId}`);
 
       // Update active nav item
-      this.updateActiveNav(sectionName);
+      this.updateActiveNav(sectionId);
+    }
+  }
 
-      // Scroll to top
-      window.scrollTo({ top: 0, behavior: "smooth" });
+  setupScrollSpy() {
+    let isScrolling = false;
+
+    window.addEventListener("scroll", () => {
+      if (!isScrolling) {
+        requestAnimationFrame(() => {
+          this.handleScroll();
+          isScrolling = false;
+        });
+        isScrolling = true;
+      }
+    });
+  }
+
+  handleScroll() {
+    const sections = ["home", "reason", "music", "playlist", "favourite"];
+    const scrollPos = window.scrollY + 150; // Offset for navbar
+
+    let currentSection = "home";
+
+    sections.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element && element.offsetTop <= scrollPos) {
+        currentSection = sectionId;
+      }
+    });
+
+    this.updateActiveNav(currentSection);
+
+    // Update URL hash without triggering scroll
+    if (window.location.hash !== `#${currentSection}`) {
+      history.replaceState(null, null, `#${currentSection}`);
     }
   }
 
