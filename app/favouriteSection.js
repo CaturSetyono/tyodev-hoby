@@ -40,15 +40,7 @@ function favouriteSection() {
                 ${createSongItem('Weightless', 'Marconi Union', 'Distance', 'Obat penenang instan.', 'fa-feather', '#ffffff')}
             </div>
             
-            <div class="text-center mt-5">
-                <div class="p-4 bg-white border border-dark border-3 d-inline-block" style="box-shadow: 8px 8px 0px #000;">
-                    <p class="h5 mb-3 fw-bold">Bingung mau dengerin apa?</p>
-                    <button class="btn btn-black btn-lg w-100" 
-                            onclick="document.querySelector('[data-section=\"music\"]').click()">
-                        <i class="fas fa-robot me-2 text-success"></i>TANYA AI AJA
-                    </button>
-                </div>
-            </div>
+           
         </div>
         
         <style>
