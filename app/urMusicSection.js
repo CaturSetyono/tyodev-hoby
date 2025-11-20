@@ -153,6 +153,35 @@ function urMusicSection() {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                gap: 1rem;
+            }
+
+            .song-content {
+                flex: 1;
+                min-width: 0; /* Prevent overflow */
+            }
+
+            .song-action {
+                flex-shrink: 0;
+            }
+
+            @media (max-width: 576px) {
+                .song-item-neo {
+                    flex-direction: column;
+                    align-items: stretch;
+                    text-align: left;
+                }
+                
+                .song-action {
+                    margin-top: 10px;
+                    width: 100%;
+                }
+                
+                .btn-spotify {
+                    width: 100%;
+                    display: block;
+                    text-align: center;
+                }
             }
             
             .btn-spotify {
@@ -384,7 +413,7 @@ function displayRecommendation(rec) {
 
     html += `
       <div class="song-item-neo">
-        <div class="flex-grow-1">
+        <div class="song-content">
           <div class="fw-bold h5 mb-1">#${idx + 1} ${song.title}</div>
           <div class="small text-muted mb-1">oleh ${song.artist}</div>
           <div class="small fst-italic text-success mb-1">"${song.reason}"</div>
@@ -392,7 +421,7 @@ function displayRecommendation(rec) {
             song.genre ? `<span class="badge bg-dark">${song.genre}</span>` : ""
           }
         </div>
-        <div class="text-end ms-3">
+        <div class="song-action">
           <a href="${spotifyUrl}" target="_blank" class="btn btn-spotify">
             <i class="fab fa-spotify me-1"></i>
             Spotify
