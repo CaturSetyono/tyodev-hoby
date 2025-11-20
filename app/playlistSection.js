@@ -1,247 +1,139 @@
 function playlistSection() {
   const section = document.createElement("section");
   section.classList.add("playlist-section", "py-5");
+  
+  const playlists = [
+      { title: "CODING VIBES", desc: "Instrumental only. No lyrics.", icon: "fa-code", color: "#ffffff" },
+      { title: "ENERGY BOOST", desc: "Rock & Pop Punk pagi hari.", icon: "fa-bolt", color: "#ccff00" }, // Acid Green
+      { title: "NIGHT STUDY", desc: "Chill & Ambient.", icon: "fa-moon", color: "#ffffff" },
+      { title: "FEEL GOOD", desc: "R&B & Soul.", icon: "fa-heart", color: "#ffffff" },
+      { title: "GAMING MODE", desc: "Electronic & Synthwave.", icon: "fa-gamepad", color: "#ffffff" },
+      { title: "COFFEE BREAK", desc: "Jazz & Acoustic.", icon: "fa-coffee", color: "#ffffff" }
+  ];
+
+  let cardsHTML = '';
+  playlists.forEach(pl => {
+      const isAccent = pl.color === '#ccff00' ? 'bg-accent' : 'bg-white';
+      cardsHTML += `
+        <div class="col-lg-4 col-md-6">
+            <div class="neo-card ${isAccent}">
+                <div class="card-top">
+                    <i class="fas ${pl.icon}"></i>
+                    <div class="dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div class="card-body-neo">
+                    <h4>${pl.title}</h4>
+                    <p>${pl.desc}</p>
+                    <button class="btn btn-play w-100">
+                        PLAY NOW <i class="fas fa-play ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+      `;
+  });
+
   section.innerHTML = `
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold mb-3">My Playlists 🎧</h2>
-                <p class="lead text-muted">Koleksi playlist untuk setiap mood dan aktivitas</p>
+                <h2 class="display-3 text-white mb-3">MY <span class="bg-white text-black px-2 border border-dark border-3">PLAYLISTS</span></h2>
+                <p class="lead text-white">Koleksi audio untuk setiap mood.</p>
             </div>
             
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="playlist-card">
-                        <div class="playlist-cover">
-                            <div class="cover-gradient"></div>
-                            <i class="fas fa-code playlist-icon"></i>
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="playlist-info">
-                            <h4>Coding Vibes</h4>
-                            <p>Lo-fi, instrumental, dan electronic untuk fokus ngoding</p>
-                            <div class="playlist-stats">
-                                <span><i class="fas fa-music"></i> 47 tracks</span>
-                                <span><i class="fas fa-clock"></i> 3h 12m</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="playlist-card">
-                        <div class="playlist-cover">
-                            <div class="cover-gradient" style="background: linear-gradient(45deg, #ff6b6b, #ffa500);"></div>
-                            <i class="fas fa-fire playlist-icon"></i>
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="playlist-info">
-                            <h4>Energy Boost</h4>
-                            <p>Rock, pop-punk, dan alternative untuk semangat pagi</p>
-                            <div class="playlist-stats">
-                                <span><i class="fas fa-music"></i> 35 tracks</span>
-                                <span><i class="fas fa-clock"></i> 2h 45m</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="playlist-card">
-                        <div class="playlist-cover">
-                            <div class="cover-gradient" style="background: linear-gradient(45deg, #4facfe, #00f2fe);"></div>
-                            <i class="fas fa-moon playlist-icon"></i>
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="playlist-info">
-                            <h4>Night Study</h4>
-                            <p>Chill, ambient, dan soft indie untuk belajar malam</p>
-                            <div class="playlist-stats">
-                                <span><i class="fas fa-music"></i> 28 tracks</span>
-                                <span><i class="fas fa-clock"></i> 1h 58m</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="playlist-card">
-                        <div class="playlist-cover">
-                            <div class="cover-gradient" style="background: linear-gradient(45deg, #a8edea, #fed6e3);"></div>
-                            <i class="fas fa-heart playlist-icon"></i>
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="playlist-info">
-                            <h4>Feel Good</h4>
-                            <p>R&B, soul, dan indie pop untuk mood yang baik</p>
-                            <div class="playlist-stats">
-                                <span><i class="fas fa-music"></i> 42 tracks</span>
-                                <span><i class="fas fa-clock"></i> 2h 33m</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="playlist-card">
-                        <div class="playlist-cover">
-                            <div class="cover-gradient" style="background: linear-gradient(45deg, #667eea, #764ba2);"></div>
-                            <i class="fas fa-gamepad playlist-icon"></i>
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="playlist-info">
-                            <h4>Gaming Mode</h4>
-                            <p>Electronic, synthwave, dan upbeat untuk gaming session</p>
-                            <div class="playlist-stats">
-                                <span><i class="fas fa-music"></i> 38 tracks</span>
-                                <span><i class="fas fa-clock"></i> 2h 51m</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="playlist-card">
-                        <div class="playlist-cover">
-                            <div class="cover-gradient" style="background: linear-gradient(45deg, #ffecd2, #fcb69f);"></div>
-                            <i class="fas fa-coffee playlist-icon"></i>
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="playlist-info">
-                            <h4>Coffee Break</h4>
-                            <p>Jazz, acoustic, dan soft rock untuk santai sejenak</p>
-                            <div class="playlist-stats">
-                                <span><i class="fas fa-music"></i> 25 tracks</span>
-                                <span><i class="fas fa-clock"></i> 1h 34m</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                ${cardsHTML}
             </div>
             
             <div class="text-center mt-5">
                 <a href="https://open.spotify.com/user/31orerj4pogknp6ttficxuzbnhei" target="_blank" 
-                   class="btn btn-success btn-lg rounded-pill px-4">
-                    <i class="fab fa-spotify me-2"></i>View All on Spotify
+                   class="btn btn-spotify-neo btn-lg">
+                    <i class="fab fa-spotify me-2"></i>VIEW SPOTIFY PROFILE
                 </a>
             </div>
         </div>
         
         <style>
             .playlist-section {
-                background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-                color: white;
-                min-height: 100vh;
+                background-color: var(--neo-blue);
             }
             
-            .playlist-card {
-                background: rgba(255,255,255,0.1);
-                border-radius: 20px;
-                overflow: hidden;
-                transition: all 0.3s ease;
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255,255,255,0.1);
-            }
-            
-            .playlist-card:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            }
-            
-            .playlist-cover {
-                height: 200px;
-                position: relative;
+            .neo-card {
+                border: 3px solid var(--neo-black);
+                box-shadow: var(--neo-shadow);
+                transition: transform 0.2s;
+                height: 100%;
                 display: flex;
-                align-items: center;
-                justify-content: center;
-                overflow: hidden;
+                flex-direction: column;
             }
             
-            .cover-gradient {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(45deg, #667eea, #764ba2);
-                opacity: 0.9;
+            .neo-card:hover {
+                transform: translate(-5px, -5px);
+                box-shadow: 10px 10px 0px var(--neo-black);
             }
+
+            .bg-white { background: var(--neo-white); }
+            .bg-accent { background: var(--neo-green); }
             
-            .playlist-icon {
-                font-size: 3rem;
-                color: white;
-                z-index: 2;
-                position: relative;
-            }
-            
-            .play-button {
-                position: absolute;
-                top: 50%;
-                right: 20px;
-                transform: translateY(-50%);
-                width: 50px;
-                height: 50px;
-                background: rgba(255,255,255,0.9);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #333;
-                opacity: 0;
-                transition: all 0.3s ease;
-                z-index: 3;
-                cursor: pointer;
-            }
-            
-            .playlist-card:hover .play-button {
-                opacity: 1;
-                transform: translateY(-50%) scale(1.1);
-            }
-            
-            .playlist-info {
+            .card-top {
                 padding: 1.5rem;
-            }
-            
-            .playlist-info h4 {
-                margin-bottom: 0.5rem;
-                color: white;
-            }
-            
-            .playlist-info p {
-                color: rgba(255,255,255,0.8);
-                font-size: 0.9rem;
-                margin-bottom: 1rem;
-            }
-            
-            .playlist-stats {
+                border-bottom: 3px solid var(--neo-black);
                 display: flex;
                 justify-content: space-between;
-                color: rgba(255,255,255,0.7);
-                font-size: 0.8rem;
+                align-items: flex-start;
+                background: rgba(0,0,0,0.05);
             }
             
-            .btn-success {
-                background: #1db954;
+            .card-top i {
+                font-size: 3rem;
+                color: var(--neo-black);
+            }
+
+            .dots span {
+                display: inline-block;
+                width: 10px; height: 10px;
+                background: var(--neo-black);
+                border-radius: 50%;
+                margin-left: 3px;
+            }
+            
+            .card-body-neo {
+                padding: 1.5rem;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .btn-play {
+                background: var(--neo-black);
+                color: var(--neo-white);
                 border: none;
-                box-shadow: 0 8px 25px rgba(29,185,84,0.3);
-                transition: all 0.3s ease;
+                border-radius: 0;
+                font-weight: bold;
+                margin-top: 1rem;
+                padding: 10px;
             }
             
-            .btn-success:hover {
-                background: #1ed760;
-                transform: translateY(-3px);
-                box-shadow: 0 12px 35px rgba(29,185,84,0.4);
+            .btn-play:hover {
+                background: #333;
+                color: var(--neo-green);
+            }
+
+            .btn-spotify-neo {
+                background: var(--neo-green);
+                color: var(--neo-black);
+                border: 3px solid var(--neo-black);
+                box-shadow: 4px 4px 0px var(--neo-black);
+                font-weight: 800;
+                padding: 15px 30px;
+            }
+            
+            .btn-spotify-neo:hover {
+                transform: translate(2px, 2px);
+                box-shadow: 1px 1px 0px var(--neo-black);
+                background: #fff;
             }
         </style>
     `;
