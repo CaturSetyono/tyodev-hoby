@@ -4,7 +4,7 @@ function Footer() {
   footer.innerHTML = `
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 mb-4">
+                <div class="col-lg-5 mb-4" data-aos="fade-up">
                     <h3 class="text-white mb-3">TYODEV MUSIC</h3>
                     <p class="text-gray">
                         Temukan playlist favoritmu juga di spotify buat nemenin hari-harimu dengan vibe positif dan energi seru!
@@ -17,7 +17,7 @@ function Footer() {
                     </div>
                 </div>
                 
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <h5 class="text-accent mb-3">NAVIGATION</h5>
                     <ul class="footer-links">
                         <li><a href="#home" onclick="document.querySelector('[data-section=\"home\"]').click()">Home</a></li>
@@ -26,7 +26,7 @@ function Footer() {
                     </ul>
                 </div>
                 
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <h5 class="text-accent mb-3">CURRENTLY CODING</h5>
                     <div class="coding-status">
                         <div class="d-flex align-items-center">
